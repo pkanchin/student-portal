@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture Completion Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .feedback-form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .feedback-form h1 {
+            text-align: center;
+            color: #333;
+        }
+        .feedback-form label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #555;
+        }
+        .feedback-form input, .feedback-form select, .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .feedback-form button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .feedback-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="feedback-form">
+    <h1>Lecture Completion Feedback Form</h1>
+    <form id="feedbackForm" action="/submit-lecture-feedback" method="post">
+        <label for="professor-name">Professor's Name:</label>
+        <input type="text" id="professor-name" name="professor-name" required>
+
+        <label for="course-name">Course Name:</label>
+        <input type="text" id="course-name" name="course-name" required>
+
+        <label for="completion-status">Lecture Completion Status:</label>
+        <select id="completion-status" name="completion-status" required disabled>
+            <option value="">Select an option</option>
+            <option value="completed">Completed</option>
+            <option value="partially-completed">Partially Completed</option>
+            <option value="not-completed">Not Completed</option>
+        </select>
+
+        <label for="lecture-quality">Quality of Lecture:</label>
+        <select id="lecture-quality" name="lecture-quality" required disabled>
+            <option value="">Select an option</option>
+            <option value="excellent">Excellent</option>
+            <option value="good">Good</option>
+            <option value="average">Average</option>
+            <option value="poor">Poor</option>
+        </select>
+
+        <label for="lecture-behavior">Lecture Behavior:</label>
+        <select id="lecture-behavior" name="lecture-behavior" required disabled>
+            <option value="">Select an option</option>
+            <option value="very-engaging">Very Engaging</option>
+            <option value="engaging">Engaging</option>
+            <option value="neutral">Neutral</option>
+            <option value="disengaging">Disengaging</option>
+        </select>
+
+        <label for="student-interaction">Interaction with Students:</label>
+        <select id="student-interaction" name="student-interaction" required disabled>
+            <option value="">Select an option</option>
+            <option value="excellent">Excellent</option>
+            <option value="good">Good</option>
+            <option value="average">Average</option>
+            <option value="poor">Poor</option>
+        </select>
+
+        <label for="feedback">Additional Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4" required disabled></textarea>
+
+        <button type="submit" disabled>Submit Feedback</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('feedbackForm');
+        const professorName = document.getElementById('professor-name');
+        const courseName = document.getElementById('course-name');
+        const completionStatus = document.getElementById('completion-status');
+        const lectureQuality = document.getElementById('lecture-quality');
+        const lectureBehavior = document.getElementById('lecture-behavior');
+        const studentInteraction = document.getElementById('student-interaction');
+        const additionalFeedback = document.getElementById('feedback');
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        function enableField(currentField, nextField) {
+            currentField.addEventListener('input', function () {
+                if (currentField.value.trim() !== '') {
+                    nextField.disabled = false;
+                } else {
+                    nextField.disabled = true;
+                    disableFollowingFields(nextField);
+                }
+            });
+        }
+
+        function disableFollowingFields(startField) {
+            const fields = [
+                completionStatus,
+                lectureQuality,
+                lectureBehavior,
+                studentInteraction,
+                additionalFeedback,
+                submitButton
+            ];
+            const startIndex = fields.indexOf(startField);
+            for (let i = startIndex; i < fields.length; i++) {
+                fields[i].disabled = true;
+            }
+        }
+
+        function validateForm(event) {
+            const fields = [
+                professorName,
+                courseName,
+                completionStatus,
+                lectureQuality,
+                lectureBehavior,
+                studentInteraction,
+                additionalFeedback
+            ];
+
+            for (const field of fields) {
+                if (field.disabled || field.value.trim() === '') {
+                    alert('Please fill above options.');
+                    event.preventDefault();
+                    return;
+                }
+            }
+        }
+
+        enableField(professorName, courseName);
+        enableField(courseName, completionStatus);
+        enableField(completionStatus, lectureQuality);
+        enableField(lectureQuality, lectureBehavior);
+        enableField(lectureBehavior, studentInteraction);
+        enableField(studentInteraction, additionalFeedback);
+
+        additionalFeedback.addEventListener('input', function () {
+            submitButton.disabled = additionalFeedback.value.trim() === '';
+        });
+
+        form.addEventListener('submit', validateForm);
+    });
+</script>
+
+</body>
+</html>

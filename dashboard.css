@@ -1,0 +1,54 @@
+body{
+    background-image: url(Images/dash.jpg);
+    background-size: cover;
+}
+
+.flex{
+    display: flex;
+    margin:120px auto;
+    padding:20px auto;
+    justify-content: center;
+
+
+}
+button {
+    background-color: rgb(0, 0, 0); 
+    opacity: 90%;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+.b1:hover {
+    padding:60px 30px;
+    background-color: rgba(177, 121, 0, 0.852); 
+    color: white;
+    size: 30px;
+}
+.b2:hover{
+    padding:60px 30px;
+    background-color: rgba(177, 121, 0, 0.852); 
+    color: white;
+    size: 30px;
+}.b3:hover {
+    padding:60px 30px;
+    background-color: rgba(177, 121, 0, 0.852); 
+    color: white;
+    size: 30px;
+}.b4:hover{
+    padding:60px 30px;
+    background-color: rgba(177, 121, 0, 0.852); 
+    color: white;
+    size: 30px;
+}.b5 :hover{
+    padding:60px 30px;
+    background-color: rgba(177, 121, 0, 0.852); 
+    color: white;
+    size: 30px;
+}

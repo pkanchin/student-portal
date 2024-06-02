@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <body>
+    <div class="flex">
+    <div class="flex5">
+      
+        <button class="b1" onclick="prof()"><img src="Images/profile.png.jpg"><p >Profile</p></button>
+    </div>
+    <div class="flex4">
+        <button class="b2" onclick="atten()"><img src="Images/attendance.jpg"><p>Attendance</p></button>
+      
+    </div>
+    <div class="flex3">
+        <button class="b3" onclick="redirectToNewPage()"><img src="Images/mentor.jpg" ><p>Mentor details</p></button>
+       
+    </div>
+    <div class="flex2">
+        <button class="b4" onclick="fee()"><img src="Images/fees.jpg"><p>Fee details</p></button>
+      
+    </div>
+    <div class="flex1">
+        <button class="b5" onclick="feed()"><img src="Images/feedback.jpg"><p>Feedback</p></button>
+    </div>
+    </div>
+    </body></head></html>
+
+
+
+<script>
+function redirectToNewPage() {
+    window.location.href = "mentor.html";
+}
+function prof() {
+    window.location.href = "profile.html";
+}
+function atten(){
+    window.location.href = "index.html";
+}
+function fee() {
+    window.location.href = "fees.html";
+}
+function feed() {
+    window.location.href = "feedback.html";
+}
+</script>

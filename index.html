@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Percentage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Attendance Percentage</h1>
+        <form id="attendanceForm">
+            <div class="subject">
+                <label for="subject1">Subject 1:</label>
+                <input type="text" id="subject1" readonly>
+                <span id="subject1-details"></span>
+            </div>
+            <div class="subject">
+                <label for="subject2">Subject 2:</label>
+                <input type="text" id="subject2" readonly>
+                <span id="subject2-details"></span>
+            </div>
+            <div class="subject">
+                <label for="subject3">Subject 3:</label>
+                <input type="text" id="subject3" readonly>
+                <span id="subject3-details"></span>
+            </div>
+            <div class="subject">
+                <label for="subject4">Subject 4:</label>
+                <input type="text" id="subject4" readonly>
+                <span id="subject4-details"></span>
+            </div>
+        </form>
+        <div class="total">
+            <strong>Total Attendance Percentage:</strong>
+            <span id="totalPercentage"></span>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

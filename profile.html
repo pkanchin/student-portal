@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="style_profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Student Profile</h1>
+        <div class="profile-details">
+            <p><strong>Registration Number:</strong> <span id="reg-number"></span></p>
+            <p><strong>Course:</strong> <span id="course"></span></p>
+            <p><strong>Credits Completed:</strong> <span id="credits"></span></p>
+            <p><strong>Email ID:</strong> <span id="email"></span></p>
+            <p><strong>Phone Number:</strong> <span id="phone"></span></p>
+        </div>
+    </div>
+    <script>
+        // Function to get query parameter from URL
+        function getQueryParam(param) {
+            let params = new URLSearchParams(window.location.search);
+            return params.get(param);
+        }
+
+        // List of random courses related to engineering
+        const courses = [
+            'Computer Science Engineering',
+            'Mechanical Engineering',
+            'Electrical Engineering',
+            'Civil Engineering',
+            'Electronics and Communication Engineering',
+            'Chemical Engineering',
+            'Aerospace Engineering'
+        ];
+
+        // List of random email domains
+        const emailDomains = ['example.com', 'university.edu', 'student.org'];
+
+        // Generate a random email
+        function generateRandomEmail(name) {
+            const domain = emailDomains[Math.floor(Math.random() * emailDomains.length)];
+            return `${name}@${domain}`;
+        }
+
+        // Generate a random phone number
+        function generateRandomPhoneNumber() {
+            const prefix = "+1"; // US country code
+            const num = Math.floor(Math.random() * 9000000000) + 1000000000;
+            return `${prefix}${num}`;
+        }
+
+        // Get the registration number from the query parameter
+        const registrationNumber = getQueryParam('regNumber') || 'Unknown';
+
+        // Get a random course
+        const randomCourse = courses[Math.floor(Math.random() * courses.length)];
+
+        // Generate a random number of credits completed
+        const randomCredits = Math.floor(Math.random() * 100) + 1;
+
+        // Generate random email and phone number
+        const randomEmail = generateRandomEmail(registrationNumber);
+        const randomPhone = generateRandomPhoneNumber();
+
+        // Set the values in the HTML
+        document.getElementById('reg-number').textContent = registrationNumber;
+        document.getElementById('course').textContent = randomCourse;
+        document.getElementById('credits').textContent = randomCredits;
+        document.getElementById('email').textContent = randomEmail;
+        document.getElementById('phone').textContent = randomPhone;
+    </script>
+</body>
+</html>

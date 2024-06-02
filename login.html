@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" href="style_login.css">
+    </head>
+
+    <body>
+        <div class="main">
+            <img src="Images/Logo.png" alt="Portal Logo" class="logo"> Student Portal
+            <form action="" method="post" id="registrationFor">
+                <label for="first">
+                    Registration Number:
+                </label>
+                <input type="text"
+                    id="first"
+                    name="first"
+                    placeholder="Enter your Username" required>
+
+                <label for="password">
+                    Password:
+                </label>
+                <input type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your Password" required>
+
+                <div class="wrap">
+                    <button type="submit"
+                        onclick="solve()">
+                        Submit
+                    </button>
+                </div>
+            </form>
+            <p>Not registered?
+                <a href="#"
+                    style="text-decoration: none;">
+                    <a href="#" onclick="redirectToLoginPage()"
+                        style="text-decoration: none;">
+                       Sign Up
+                    </a>
+                </a>
+            </p>
+        </div>
+    </body>
+    <script>
+    function redirectToLoginPage() {
+        window.location.href = 'create_account.html';
+    }
+    document.getElementById('registrationFor').addEventListener('submit', function(event) {
+        event.preventDefault();
+                    window.location.href = 'dashboard.html';
+            });
+</script>
+</html>

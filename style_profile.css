@@ -1,0 +1,46 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('Images/profile.jpg') no-repeat center center fixed; 
+    background-size: 75% 75%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.profile-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-container:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #1e90ff;
+    border-bottom: 2px solid #1e90ff;
+    padding-bottom: 10px;
+}
+
+.profile-details p {
+    margin: 15px 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.profile-details p strong {
+    color: #333;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
